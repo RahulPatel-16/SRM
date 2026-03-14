@@ -12,6 +12,35 @@
   --text-muted: #7a5c44;
   --border: rgba(92,61,30,0.12);
 }
+/* Add gradient section dividers between sections */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(232,135,58,0.15), transparent);
+  margin: 0;
+}
+
+/* Upgrade stats/footer from flat bark to gradient */
+.stats { background: linear-gradient(135deg, var(--bark) 0%, #2e1a0e 100%); }
+footer { background: linear-gradient(135deg, var(--bark) 0%, #2e1a0e 100%); }
+
+/* Add gradient text for hero title emphasis */
+.hero h1 em {
+  background: linear-gradient(135deg, var(--deep-orange), var(--saffron));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle radial glow behind page headers */
+.page-header::before {
+  background: radial-gradient(circle, rgba(232,135,58,0.08) 0%, transparent 60%);
+}
+
+/* Card hover accent bar — gradient instead of flat */
+.about-card::after,
+.use-card::before {
+  background: linear-gradient(to right, var(--turmeric), var(--saffron));
+}
+
 
 html { scroll-behavior: smooth; }
 
@@ -131,6 +160,53 @@ nav {
   position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
   background: linear-gradient(to bottom, transparent, var(--cream));
 }
+
+/* PARTICLES */
+.particles-container {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.particle {
+  position: absolute; pointer-events: none;
+  animation: float linear infinite;
+  display: flex; align-items: center; justify-content: center;
+}
+.particle.small { width: 16px; height: 16px; opacity: 0.35; }
+.particle.small svg { width: 16px; height: 16px; }
+.particle.medium { width: 24px; height: 24px; opacity: 0.45; }
+.particle.medium svg { width: 24px; height: 24px; }
+.particle.large { width: 36px; height: 36px; opacity: 0.55; }
+.particle.large svg { width: 36px; height: 36px; }
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.4; }
+  15% { transform: translateY(-8vh) translateX(200px) rotate(90deg); }
+  30% { transform: translateY(-12vh) translateX(350px) rotate(180deg); }
+  45% { transform: translateY(-5vh) translateX(550px) rotate(270deg); }
+  60% { transform: translateY(-15vh) translateX(750px) rotate(180deg); }
+  75% { transform: translateY(-8vh) translateX(950px) rotate(90deg); }
+  100% { transform: translateY(-20vh) translateX(1200px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes float2 {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.4; }
+  20% { transform: translateY(-10vh) translateX(280px) rotate(80deg); }
+  40% { transform: translateY(-6vh) translateX(450px) rotate(160deg); }
+  60% { transform: translateY(-14vh) translateX(800px) rotate(240deg); }
+  80% { transform: translateY(-9vh) translateX(1000px) rotate(300deg); }
+  100% { transform: translateY(-20vh) translateX(1250px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes float3 {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.4; }
+  25% { transform: translateY(-7vh) translateX(220px) rotate(70deg); }
+  50% { transform: translateY(-12vh) translateX(500px) rotate(180deg); }
+  75% { transform: translateY(-8vh) translateX(900px) rotate(270deg); }
+  100% { transform: translateY(-20vh) translateX(1220px) rotate(360deg); opacity: 0; }
+}
+
+.particle.anim1 { animation: float linear infinite; }
+.particle.anim2 { animation: float2 linear infinite; }
+.particle.anim3 { animation: float3 linear infinite; }
 .hero-inner {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 4rem; align-items: center;
