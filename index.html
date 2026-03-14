@@ -377,24 +377,12 @@
 
   document.querySelectorAll('.reveal').forEach(function (el) { ro.observe(el); });
 
-  /* SPICES ICONS */
-  var spiceIcons = [
-    '<svg viewBox="0 0 24 24" width="24" height="24"><g stroke="#c45e1a" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M6 18C6 12 12 2 14 2C16 2 18 10 18 16C18 20 16 22 14 22C12 22 8 21 6 18Z"></path></g></svg>', // chilli
-    '<svg viewBox="0 0 24 24" width="24" height="24"><g stroke="#c45e1a" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M4 14L6 6M8 16L10 5M12 16L12 4M6 14C6 14 8 16 10 15C12 14 14 16 16 15"></path></g></svg>', // herbs
-    '<svg viewBox="0 0 24 24" width="24" height="24"><g stroke="#c45e1a" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><circle cx="12" cy="12" r="8"></circle><path d="M8 12C8 10 10 8 12 8C14 8 16 10 16 12"></path><path d="M8.5 14.5L7 16M15.5 14.5L17 16"></path></g></svg>', // flower/star
-    '<svg viewBox="0 0 24 24" width="24" height="24"><g stroke="#c45e1a" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M4 8C4 6 5 4 7 4C9 4 10 6 10 8L10 18C10 20 9 22 7 22C5 22 4 20 4 18Z"></path><path d="M14 8C14 6 15 4 17 4C19 4 20 6 20 8L20 18C20 20 19 22 17 22C15 22 14 20 14 18Z"></path><circle cx="7" cy="8" r="1.5"></circle><circle cx="17" cy="8" r="1.5"></circle></g></svg>', // cinnamon sticks
-    '<svg viewBox="0 0 24 24" width="24" height="24"><g stroke="#c45e1a" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><ellipse cx="12" cy="12" rx="7" ry="5"></ellipse><path d="M5 10L18 8M5 14L18 16M8 8L9 6M16 8L18 6M8 16L9 18M16 16L18 18"></path></g></svg>', // cumin/seeds
-    '<svg viewBox="0 0 24 24" width="24" height="24"><g stroke="#c45e1a" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><circle cx="6" cy="7" r="1.5"></circle><circle cx="12" cy="5" r="1.5"></circle><circle cx="18" cy="7" r="1.5"></circle><rect x="4" y="10" width="16" height="8" rx="2"></rect><circle cx="8" cy="14" r="1"></circle><circle cx="12" cy="14" r="1"></circle><circle cx="16" cy="14" r="1"></circle></g></svg>', // cloves in pot
-    '<svg viewBox="0 0 24 24" width="24" height="24"><g stroke="#c45e1a" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M4 8L8 2L10 8L16 8L12 12L14 18L8 14L2 18L4 12L0 8Z"></path></g></svg>', // salt shaker
-    '<svg viewBox="0 0 24 24" width="24" height="24"><g stroke="#c45e1a" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><path d="M6 18C4 16 3 14 3 12C3 7 7 4 11 4C15 4 19 7 19 12C19 14 18 16 16 18"></path><path d="M8 18L8 22M16 18L16 22"></path><circle cx="11" cy="12" r="3"></circle></g></svg>', // cooking pot
-    '<svg viewBox="0 0 24 24" width="24" height="24"><g stroke="#c45e1a" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"><circle cx="7" cy="10" r="4"></circle><circle cx="17" cy="10" r="4"></circle><circle cx="12" cy="18" r="4"></circle></g></svg>' // tomatoes/round spices
-  ];
-
   /* SPICES FLOW ANIMATION */
   function createParticles() {
     var container = document.getElementById('particlesContainer');
     if (!container) return;
     
+    var spices = ['🌶️', '⚫', '🌾', '⭐', '🌿', '🟡', '💚', '🫘', '🌸'];
     var particleCount = 80;
     var sizes = ['small', 'medium', 'large'];
     var animations = ['anim1', 'anim2', 'anim3'];
@@ -403,13 +391,13 @@
       var particle = document.createElement('div');
       var sizeClass = sizes[Math.floor(Math.random() * sizes.length)];
       var animClass = animations[Math.floor(Math.random() * animations.length)];
-      var spiceIcon = spiceIcons[Math.floor(Math.random() * spiceIcons.length)];
+      var spice = spices[Math.floor(Math.random() * spices.length)];
       particle.classList.add('particle', sizeClass, animClass);
-      particle.innerHTML = spiceIcon;
+      particle.textContent = spice;
       
       var top = Math.random() * 100;
-      var duration = 14 + Math.random() * 16;
-      var delay = (i / particleCount) * 2;
+      var duration = 12 + Math.random() * 18;
+      var delay = (i / particleCount) * 2 - 1;
       
       particle.style.left = '-5%';
       particle.style.top = top + '%';
