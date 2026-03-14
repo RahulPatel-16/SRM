@@ -194,6 +194,9 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(92,61,30,0.09); }
   /* scroll reveal start state */
   opacity: 0;
   transform: translateY(24px);
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 3 / 4;
 }
 .spice-card.in-view {
   opacity: 1; transform: translateY(0);
@@ -219,7 +222,8 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(92,61,30,0.09); }
 
 /* IMAGE WRAP */
 .spice-img-wrap {
-  width: 100%; aspect-ratio: 1 / 1;
+  width: 100%;
+  flex: 0.7;
   position: relative; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
 }
@@ -267,22 +271,26 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(92,61,30,0.09); }
 
 /* NAME AREA */
 .spice-name {
-  padding: 0.85rem 1rem 1rem;
+  padding: 0.4rem 0.6rem;
   border-top: 1px solid var(--border);
   background: var(--warm-white);
   text-align: center; position: relative;
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .spice-name h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 0.9rem; font-weight: 600;
-  color: var(--bark); line-height: 1.3; margin-bottom: 0.18rem;
+  font-size: 0.75rem; font-weight: 600;
+  color: var(--bark); line-height: 1.1; margin-bottom: 0.08rem;
   transition: color 0.2s;
 }
 .spice-card:hover .spice-name h3 { color: var(--deep-orange); }
 .spice-name small {
   font-family: 'Karma', serif;
-  font-size: 0.7rem; color: var(--text-muted);
-  font-weight: 300; letter-spacing: 0.06em; font-style: italic;
+  font-size: 0.58rem; color: var(--text-muted);
+  font-weight: 300; letter-spacing: 0.05em; font-style: italic;
 }
 /* accent underline */
 .spice-name::after {
@@ -316,7 +324,7 @@ footer p { font-size: 0.8rem; }
 }
 @media (max-width: 520px) {
   .spice-grid { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
-  .spice-emoji { font-size: 2.8rem; }
-  .spice-name h3 { font-size: 0.78rem; }
-  .spice-name { padding: 0.6rem 0.5rem 0.7rem; }
+  .spice-emoji { font-size: 2.4rem; }
+  .spice-name h3 { font-size: 0.68rem; }
+  .spice-name { padding: 0.3rem 0.4rem; }
 }
