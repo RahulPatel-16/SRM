@@ -18,7 +18,7 @@ html { scroll-behavior: smooth; }
 /* PAGE TRANSITION OVERLAY */
 #page-overlay {
   position: fixed; inset: 0; z-index: 9999;
-  background: linear-gradient(160deg, #3d1f08 0%, #7a3d10 40%, #c45e1a 80%, #e8873a 100%);
+  background: linear-gradient(160deg, #e8e5e0 0%, #f5f1ed 40%, #e8e5e0 80%, #d9d5cf 100%);
   transform: scaleY(1); transform-origin: top;
   transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
   pointer-events: none;
