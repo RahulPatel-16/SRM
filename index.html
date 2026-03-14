@@ -409,10 +409,9 @@
       
       var top = Math.random() * 100;
       var duration = 14 + Math.random() * 16;
-      var startPosition = (i / particleCount) * 100;
-      var delay = (i / particleCount) * 4;
+      var delay = (i / particleCount) * 2;
       
-      particle.style.left = (startPosition - 10) + '%';
+      particle.style.left = '-5%';
       particle.style.top = top + '%';
       particle.style.animationDuration = duration + 's';
       particle.style.animationDelay = delay + 's';
