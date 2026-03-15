@@ -596,9 +596,10 @@
 
   function updateCarousel() {
     // Calculate the translateX value to shift the track
-    // We need to offset by one slide width so the center card is actually centered
-    const slideWidth = 100 / 3; // 3 visible cards
-    const offset = (currentIndex - 1) * slideWidth;
+    // Desktop: 3 cards visible (33.333% each), Mobile: 1 card visible (100% each)
+    const isMobile = window.innerWidth <= 900;
+    const slideWidth = isMobile ? 100 : (100 / 3);
+    const offset = isMobile ? currentIndex * slideWidth : (currentIndex - 1) * slideWidth;
     
     carouselTrack.style.transform = `translateX(-${offset}%)`;
 
@@ -666,6 +667,9 @@
 
   // Initialize carousel
   updateCarousel();
+
+  // Handle window resize for responsive carousel
+  window.addEventListener('resize', updateCarousel);
 
   // Auto-rotate carousel every 4 seconds
   setInterval(() => {
