@@ -27,9 +27,9 @@
     <li><a href="#about">About</a></li>
     <li><a href="html/spices.html">Our Spices</a></li>
     <li><a href="#uses">Uses</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="html/contact.html">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Enquire Now</a>
+  <a href="html/contact.html" class="nav-cta">Enquire Now</a>
   <div class="nav-hamburger"><span></span><span></span><span></span></div>
 </nav>
 
@@ -43,7 +43,7 @@
   <div class="hero-inner">
     <div>
       <span class="hero-label fade-up">Est. in the heart of India</span>
-      <span class="since-text fade-up delay-1">Serving Since 2003</span>
+      <span class="since-text fade-up delay-1">Since 1998</span>
       <h1 class="fade-up delay-2">Pure Spices,<br/><em>Timeless</em> Flavour</h1>
       <p class="fade-up delay-3">From our farms to your kitchen — Shree Ram Masala brings you 100% natural, handpicked Indian spices that elevate every dish with authentic aroma and taste.</p>
       <div class="hero-btns fade-up delay-4">
@@ -316,37 +316,26 @@
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div class="contact-info reveal reveal-d1">
-      <span class="section-tag">Get in Touch</span>
-      <h3>Order or Enquire Today</h3>
-      <p>Interested in our products? Reach out for pricing, bulk orders, or to know more about our range.</p>
+      <span class="section-tag">Quick Contact</span>
+      <h3>Reach Out to Us</h3>
+      <p>Interested in our products? Here's how to get in touch.</p>
       
-      <div class="contact-detail">
-        <div class="contact-detail-icon">📞</div>
-        <div class="contact-detail-text"><strong>Phone</strong>+91 7069056010</div>
+      <div class="contact-info-grid">
+        <div class="contact-info-item">
+          <div class="contact-info-label">Name</div>
+          <div class="contact-info-value">Shree Ram Masala</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Phone</div>
+          <div class="contact-info-value">+91 7069056010</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Address</div>
+          <div class="contact-info-value">500, New IPCL Rd, Satyam Apartment, Gorwa, Vadodara, Gujarat 390016</div>
+        </div>
       </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">✉️</div>
-        <div class="contact-detail-text"><strong>Email</strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f0999e969fb0839882959582919d9d9183919c91de999e">csgorahul@gmail.com</a></div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">💬</div>
-        <div class="contact-detail-text"><strong>WhatsApp</strong>+91 7069056010</div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">📍</div>
-        <div class="contact-detail-text"><strong>Shop 1</strong>500, New IPCL Rd, Satyam Apartment, Gorwa, Vadodara, Gujarat 390016</div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">📍</div>
-        <div class="contact-detail-text"><strong>Shop 2</strong>D/12 Jalanand Township Panchvati Gorwa Vadodara 390016</div>
-      </div>
-    </div>
-    <div class="contact-form reveal reveal-d2">
-      <input type="text" placeholder="Your Name" />
-      <input type="tel" placeholder="Phone Number" />
-      <input type="email" placeholder="Email Address" />
-      <textarea placeholder="Tell us what you need — product, quantity, or any questions..."></textarea>
-      <button class="btn-primary">Send Enquiry</button>
+      
+      <a href="html/contact.html" class="btn-primary" style="margin-top: 2rem; display: inline-block;">Contact Us Now</a>
     </div>
   </div>
 </section>
@@ -388,6 +377,8 @@
   document.querySelectorAll('a[href]').forEach(function (link) {
     var href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    /* Skip overlay for About section links */
+    if (href.includes('#about') || href.includes('#uses')) return;
     link.addEventListener('click', function (e) {
       e.preventDefault();
       /* sweep in from bottom */
