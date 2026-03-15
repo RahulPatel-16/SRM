@@ -212,6 +212,117 @@
   </div>
 </section>
 
+<!-- INSTANT PRODUCTS CAROUSEL -->
+<section class="instant-products">
+  <div class="instant-products-inner">
+    <div class="section-header centered">
+      <span class="section-tag">Convenience Redefined</span>
+      <h2 class="section-title">Premium <em>Instant</em> Mixes</h2>
+      <p class="section-sub">Authentic taste, ready in minutes — our curated collection of instant mixes bring traditional flavors to your table with effortless convenience.</p>
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Instant Product 1 -->
+          <div class="carousel-slide">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="images/instant-gujarati-dal.jpg" alt="Instant Gujarati Dal" />
+              </div>
+              <div class="product-info">
+                <h3>Instant Gujarati Dal</h3>
+                <p>Quick-cooking lentil base with traditional Gujarati spices for an authentic, home-made dal in minutes.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instant Product 2 -->
+          <div class="carousel-slide">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="images/instant-gujarati-kadhi.jpg" alt="Instant Gujarati Kadhi" />
+              </div>
+              <div class="product-info">
+                <h3>Instant Gujarati Kadhi</h3>
+                <p>Tangy and creamy yogurt-based curry infused with aromatic spices — ready to serve in no time.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instant Product 3 -->
+          <div class="carousel-slide">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="images/instant-moong-dal-halwa.jpg" alt="Instant Moong Dal Halwa" />
+              </div>
+              <div class="product-info">
+                <h3>Instant Moong Dal Halwa</h3>
+                <p>Delicious, melt-in-mouth dessert made from roasted moong dal with ghee and cardamom — instant indulgence.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instant Product 4 -->
+          <div class="carousel-slide">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="images/instant-gota-mix.jpg" alt="Instant Gota Mix" />
+              </div>
+              <div class="product-info">
+                <h3>Instant Gota Mix</h3>
+                <p>Perfect blend for fluffy, perfectly-spiced snack balls — traditional taste with modern convenience.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instant Product 5 -->
+          <div class="carousel-slide">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="images/instant-dalwada-mix.jpg" alt="Instant Dalwada Mix" />
+              </div>
+              <div class="product-info">
+                <h3>Instant Dalwada Mix</h3>
+                <p>Savory, crispy lentil cake mix with aromatic spices — authentic Gujarati taste in moments.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instant Product 6 -->
+          <div class="carousel-slide">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="images/instant-khaman-mix.jpg" alt="Instant Khaman Mix" />
+              </div>
+              <div class="product-info">
+                <h3>Instant Khaman Mix</h3>
+                <p>Soft, spongy steamed cake infused with turmeric and ginger — restaurant-quality in your kitchen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Navigation Controls -->
+    <div class="carousel-controls">
+      <button class="carousel-btn prev" id="prevBtn">❮</button>
+      
+      <div class="carousel-dots" id="carouselDots">
+        <button class="dot active" data-index="0"></button>
+        <button class="dot" data-index="1"></button>
+        <button class="dot" data-index="2"></button>
+        <button class="dot" data-index="3"></button>
+        <button class="dot" data-index="4"></button>
+        <button class="dot" data-index="5"></button>
+      </div>
+
+      <button class="carousel-btn next" id="nextBtn">❯</button>
+    </div>
+  </div>
+</section>
+
 
 
 
@@ -472,6 +583,94 @@
       spans[2].style.transform = '';
     });
   }
+
+  // INSTANT PRODUCTS CAROUSEL
+  const carouselTrack = document.getElementById('carouselTrack');
+  const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+  let currentIndex = 0; // Start with first product centered
+  const totalSlides = slides.length;
+  
+  // Clone slides for infinite scroll effect
+  const clonedSlides = slides.map(slide => slide.cloneNode(true));
+  clonedSlides.forEach(slide => carouselTrack.appendChild(slide));
+
+  function updateCarousel() {
+    // Calculate the translateX value to shift the track
+    // We need to offset by one slide width so the center card is actually centered
+    const slideWidth = 100 / 3; // 3 visible cards
+    const offset = (currentIndex - 1) * slideWidth;
+    
+    carouselTrack.style.transform = `translateX(-${offset}%)`;
+
+    // Update classes for all slides (both original and cloned)
+    const allSlides = document.querySelectorAll('.carousel-slide');
+    allSlides.forEach((slide, index) => {
+      slide.classList.remove('center', 'left', 'right');
+      
+      // Map clone indices back to original
+      const mappedIndex = index % totalSlides;
+      
+      // Left card
+      if (mappedIndex === (currentIndex - 1 + totalSlides) % totalSlides) {
+        slide.classList.add('left');
+      }
+      // Center card
+      else if (mappedIndex === currentIndex) {
+        slide.classList.add('center');
+      }
+      // Right card
+      else if (mappedIndex === (currentIndex + 1) % totalSlides) {
+        slide.classList.add('right');
+      }
+    });
+
+    // Update dots
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+      dot.classList.remove('active');
+      if (index === currentIndex) {
+        dot.classList.add('active');
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  function goToSlide(index) {
+    currentIndex = index % totalSlides;
+    updateCarousel();
+  }
+
+  // Manual navigation with buttons
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dots = document.querySelectorAll('.dot');
+
+  prevBtn.addEventListener('click', prevSlide);
+  nextBtn.addEventListener('click', nextSlide);
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', function() {
+      const index = parseInt(this.dataset.index);
+      goToSlide(index);
+    });
+  });
+
+  // Initialize carousel
+  updateCarousel();
+
+  // Auto-rotate carousel every 4 seconds
+  setInterval(() => {
+    nextSlide();
+  }, 4000);
 
 </script>
 
