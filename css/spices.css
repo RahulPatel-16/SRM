@@ -110,7 +110,9 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(92,61,30,0.09); }
 /* PAGE HEADER */
 .page-header {
   padding: 120px 5% 4rem;
-  background: var(--warm-white);
+  background-image: linear-gradient(rgba(255, 251, 245, 0.7), rgba(255, 251, 245, 0.7)), url("../images/hero-section bg.png");
+  background-size: cover;
+  background-position: center;
   text-align: center; position: relative; overflow: hidden;
 }
 .page-header::before {
@@ -184,7 +186,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(92,61,30,0.09); }
 
 .spice-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.4rem;
 }
 
@@ -206,7 +208,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(92,61,30,0.09); }
   transform: translateY(24px);
   display: flex;
   flex-direction: column;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 4.5;
 }
 .spice-card.in-view {
   opacity: 1; transform: translateY(0);
@@ -266,7 +268,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(92,61,30,0.09); }
 .spice-emoji {
   position: absolute; inset: 0; z-index: 1;
   display: flex; align-items: center; justify-content: center;
-  font-size: 3.6rem;
+  font-size: 4.2rem;
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s;
 }
 .spice-card:hover .spice-emoji { transform: scale(1.14); }
@@ -292,14 +294,14 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(92,61,30,0.09); }
 }
 .spice-name h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 0.75rem; font-weight: 600;
+  font-size: 0.9rem; font-weight: 600;
   color: var(--bark); line-height: 1.1; margin-bottom: 0.08rem;
   transition: color 0.2s;
 }
 .spice-card:hover .spice-name h3 { color: var(--deep-orange); }
 .spice-name small {
   font-family: 'Karma', serif;
-  font-size: 0.58rem; color: var(--text-muted);
+  font-size: 0.7rem; color: var(--text-muted);
   font-weight: 300; letter-spacing: 0.05em; font-style: italic;
 }
 /* accent underline */
@@ -391,7 +393,7 @@ footer p { font-size: 0.8rem; }
   }
   
   .nav-hamburger { display: flex; }
-  .spice-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; }
+  .spice-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 }
 @media (max-width: 520px) {
   .spice-grid { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }

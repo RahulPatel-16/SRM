@@ -121,9 +121,9 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(92,61,30,0.09); }
 
 /* PAGE HEADER */
 .page-header {
+  background-image: linear-gradient(rgba(255, 251, 245, 0.7), rgba(255, 251, 245, 0.7)), url("../images/hero-section bg.png");
   padding: 120px 5% 60px;
   text-align: center;
-  background: linear-gradient(135deg, var(--warm-white) 100%);
   position: relative;
 }
 .page-header::before {
