@@ -11,13 +11,21 @@ const mimeTypes = {
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
   '.gif': 'image/gif',
   '.svg': 'image/svg+xml',
-  '.ico': 'image/x-icon'
+  '.ico': 'image/x-icon',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2',
+  '.ttf': 'font/ttf'
 };
 
 http.createServer((req, res) => {
-  let filePath = '.' + (req.url === '/' ? '/index.html' : req.url);
+  // Remove query parameters (like ?v=1) and decode spaces (%20)
+  const cleanUrl = decodeURIComponent(req.url.split('?')[0]);
+  const relativePath = cleanUrl === '/' ? 'index.html' : cleanUrl.replace(/^\/+/, '');
+  const filePath = path.join(__dirname, relativePath);
+
   const ext = path.extname(filePath).toLowerCase();
   const contentType = mimeTypes[ext] || 'application/octet-stream';
 
