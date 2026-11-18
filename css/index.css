@@ -193,9 +193,22 @@ nav {
 .since-text{
   display:block;
   margin-top:2px;
-  font-size:0.82rem; letter-spacing:0.18em;
+  font-size:0.95rem; letter-spacing:0.18em;
   text-transform:uppercase; color: var(--saffron);
 
+}
+.hero-label {
+  font-size: 0.95rem;
+}
+.gst-number {
+  position: absolute;
+  top: 5.5rem;
+  right: 5%;
+  z-index: 1;
+  color: var(--saffron);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 .hero h1 {
   font-family: 'Playfair Display', serif;
